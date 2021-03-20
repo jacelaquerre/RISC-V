@@ -1,3 +1,6 @@
+# Jace Laquerre
+# RISC-V
+
 jal x0, main        # run main
 
 intdiv:
@@ -66,13 +69,13 @@ blt a0, a1, L1      # if count > i
 
 add a0, x0, a2      # set a0 to a2 (total)
 add a1, x0, a1      # set a1 to count
-addi sp, x0, 64     # Set stack pointer memory to not zero 
+addi sp, x0, 64     # reset stack pointer 
 jal ra, intdiv      # save PC in ra and jump to label intdiv (function call)
 jalr x0, ra, 0      # jump to return address
 addi sp, sp, 64     # restore sp: sp ¬ sp + 64
 
 main:
-addi sp, x0, 64     # Reset stack pointer
+addi sp, x0, 64     # set stack pointer memory to not zero
 addi a0, x0, 0      # a0 <- 0
 addi a1, x0, 2      # a1 <- 2
 sw a1, 0(x0)        # mem[0] <- a1
