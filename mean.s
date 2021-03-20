@@ -20,7 +20,7 @@ sw a0, -20(s0)      # store a0 in mem[s0-20] : this is sum (result of division)
 lw a0, -12(s0)      # load a0 from the stack
 lw a1, -16(s0)      # load a1 from the stack
                                                                               
-blt a1, a0, Loop    #denom < numer
+blt a1, a0, Loop    # denom < numer
 beq a1, a0, Loop    # denom == numer
 
 Loop:
@@ -30,7 +30,7 @@ lw a0, -20(s0)      # load sum from the stack
 addi a0, a0, 1      # set a0 to a0 += 1         
 sw a0, -20(s0)      # save a0 (sum) on the stack
 lw a0, -12(s0)      # load a0 from the stack
-blt a1, a0, Loop    #denom < numer then Loop
+blt a1, a0, Loop    # denom < numer then Loop
 beq a1, a0, Loop    # denom == numer then Loop
 
 lw a0, -20(s0)      # load a0 (sum) from the stack
